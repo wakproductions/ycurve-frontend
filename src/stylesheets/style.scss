@@ -1,9 +1,66 @@
 @import "~bootstrap/scss/bootstrap";
 
-body {
-  font-family: Verdana;
+.fontaweome-test {
+  font-family: 'Font Awesome 5 Free';
 }
 
-h1 {
-  text-decoration: underline;
+.center {
+  text-align: center;
+}
+
+.action-button {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline;
+  padding: 5px;
+}
+
+.blue-bg {
+  background: #35cef1;
+}
+
+.green-bg {
+  background: #02d6a9;
+}
+
+.yellow-bg {
+  background: #efedb1;
+}
+
+.yield-curve-chart-page {
+  .chart-navigation { font-size: 12pt; padding-left: 50px; }
+  .date-navigate-backward, .date-navigate-forward {
+    @extend .yellow-bg;
+    margin-right: 3px;
+  }
+  .stick-current-graph{
+    @extend .blue-bg;
+    margin-left: 30px;
+  }
+
+  #chart-canvas {
+    position: relative;
+    max-width: 877px;
+  }
+
+  .social-media-box {
+    margin-top: 25px;
+    .email-contact-link {
+      height: 40px;
+      padding-top: 10px;
+      text-align: left;
+      border-left: 1px solid black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+
+    .social-media-buttons {
+      height: 40px;
+      padding-top: 10px;
+      text-align: right;
+      border-right: 1px solid black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+  }
 }

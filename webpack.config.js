@@ -30,6 +30,7 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" },
+          { loader: "resolve-url-loader" },
           {
             loader: "postcss-loader",
             options: {
@@ -44,18 +45,26 @@ module.exports = {
           { loader: "sass-loader" }
         ]
       },
-      { test: /\.jsx?$/, use: 'babel-loader' }
+      { test: /\.jsx?$/, use: 'babel-loader' },
     ]
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      "window.jQuery":"jquery"
+    }),
+    new webpack.DefinePlugin({
+      YCURVE_API_ENDPOINT: 'http://96.40.81.149:8030/api/v1/yield_curve_snapshot'
     }),
 
     // This copies index.html into dist for production
     new CopyWebpackPlugin(
-      ['index.html']
+      [
+        'index.html',
+        { from: 'web-fonts-with-css/css/fontawesome-all.css', to: 'fontawesome-all.css' },
+        { from: 'web-fonts-with-css/webfonts', to: 'webfonts' },
+      ]
     ),
 
     // This copies index.html into dist for webpack-dev-server
